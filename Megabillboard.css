@@ -5,7 +5,7 @@
 .ads-slot-mb-container{width:100%;height:506px;position:absolute;background-attachment:scroll;background-position:left top;background-size:cover;clip:rect(auto,auto,auto,auto)}
 .ads-slot-mb-container{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex}
 .ads-slot--mb{background-repeat:no-repeat;background-position:center center}
-.ads-slot--mb{width:320px;height:480px;margin-top:26px!important;position:fixed!important;z-index:1!important;background-image: url(&quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgo0pNuy3igITDu5ps5YnF250XBfuWhUe-30xgD7ZycDUGfWTFmseTz_wGIESi1k4CxCTroytN_88B3Hch8-yA0FzA3ctz8f_qnjY7A_gho5ci3FbhZ8Tz2erqrb9OgtP1r0wOnC6ncx8aQLrxQYu6v0sBcMUWLwQKBEAKB2EzH4Rv52AadFnbk07qtkki/w320-h480/Advertisement_20240305_034816_0000.png&quot;)}
+.ads-slot--mb{width:320px;height:480px;margin-top:26px!important;position:fixed!important;z-index:1!important;background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgo0pNuy3igITDu5ps5YnF250XBfuWhUe-30xgD7ZycDUGfWTFmseTz_wGIESi1k4CxCTroytN_88B3Hch8-yA0FzA3ctz8f_qnjY7A_gho5ci3FbhZ8Tz2erqrb9OgtP1r0wOnC6ncx8aQLrxQYu6v0sBcMUWLwQKBEAKB2EzH4Rv52AadFnbk07qtkki/w320-h480/Advertisement_20240305_034816_0000.png")}
 .megabillboard-close{cursor:pointer;position:absolute;right:calc(50% - 160px);color:#21409A;padding:5px 0;z-index:2;font-size:13px;font-family:Helvetica-FF,Arial,Tahoma,sans-serif;font-weight:700}
 
 .megabillboard_container iframe {border:0px;vertical-align:bottom;z-index:1 !important;width:320px;left:0px;height:480px;right:0;margin:auto;top:auto !important;}
