@@ -1,6 +1,6 @@
 function MegaBillSticky() {
 $(document).ready(function () {
-var headerWoli = document.querySelector("header");
+var headerWoli = document.querySelector("#in-framebar");
 headerWoli.classList.add("noSticky");
 window.addEventListener("scroll", function (e) {
 var shrinkOn = 520;
