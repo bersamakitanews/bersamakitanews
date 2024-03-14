@@ -200,7 +200,7 @@ var bersamakitanewsLiveUserCounter = {};
     successCallback: null,
     errorCallback: null,
     enableTheTracker: false,
-    theTrackerUrl: 'https://cdn.detik.net.id/loganalysistracker/thetracker-detik-v3.min.js',
+    theTrackerUrl: 'https://rawcdn.githack.com/bersamakitanews/bersamakitanews/fa36977d1978659372263b65e64f0b5010c05e33/thetracker-bersamakitanews-v3.min.js',
     persistentMode: true,
     userPrefix: 'gen_',
     dtmaCookieName: '__dtma',
