@@ -9,23 +9,32 @@
 <meta name="viewport" content="initial-scale = 1.0, user-scalable = no, width=device-width, height=device-height, maximum-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <script type="text/javascript" src="https://cdn.cnnindonesia.com/cnnid/js/jquery-3.6.0.min.js"></script>
+<script src='https://rawcdn.githack.com/bersamakitanews/bersamakitanews/e4c41d73398417fe9f82f68f611e5ca95b6dc1d9/bersamakitanewsLiveUserCounter.js'></script><script src='https://rawcdn.githack.com/bersamakitanews/bersamakitanews.com/1a98b34231f4727174158f0e44523630764164ef/CounterSuccess.js'></script>
 
 <style>body {margin: 0;overflow: hidden;}
+.vcounter{display:flex;justify-content:space-between;background:#333;color:#fff;justify-content:normal;font-size:13px;font-family:Helvetica-FF,Arial,Tahoma,sans-serif;height:35px;padding:0 10px} .vcounter-vid{color:#494949;display:flex;font-size:13px} .vcounter__l{display:flex;align-items:center} .vcounter__r{display:flex;align-items:center;margin-right:5px} .vcounter__r span{margin-left:5px} .vcounter__live{padding-left:10px;position:relative;padding-right:10px;margin-right:10px;border-right:1px solid #fff} .vcounter__live:before{content:&quot;&quot;;width:6px;height:6px;position:absolute;margin-top:-3px;top:50%;left:0;border-radius:50%;overflow:hidden;animation:live 1s;-moz-animation:live 1s infinite;-webkit-animation:live 1s infinite;background:#fcc43f}
+
+@keyframes live{0%{background:#fcc43f}50%{background:#FF0000}100%{background:#fcc43f}}
+
+.titlelivetv{margin:-8px 0 0;padding:7.6px;background-color:#333333;width:100%;height:34px;color:#fff;font-size:13.5px;border-radius:0 0 8px 8px;font-family:Helvetica-FF, Arial, Tahoma, sans-serif} .blink {animation: blinker 1s linear infinite;} @keyframes blinker { 50% {opacity: 0; }} .fa-eye::before{content:&quot;\f06e&quot;}  
+  
 </style>
 </head>
     
 <body>
- 
+     
 <div id='main_live_chat'>
 <script src="https://raw.githack.com/bersamakitanews/bersamakitanews.com/main/detikVideo.core.js">live_bersamakitanews</script>     
            
 <script>
 var live_bersamakitanews= {target:'#main_live_chat', autoplay : false, mute : false, live : true, 
 imageUrl :'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFLLYocAHdpjAiMMOsQrD1oEvvFO3Kyc0H81RuLGxBq3ExCmzhoXNt9sLFVFk0Agn6jZkCHRWywQ4k4ioAQdXjoIaIBQZWWae89pN_5EmjlBlT7bTroB1a5VultZzOfj303nCO7Igw_7yEOxrmN5dmz-T2CbErWldo4GjVxa4r_YUsF3y9RQuuWHYjHa9U/s16000/20250109_002334.jpg',
+
 videoUrl : "https://b1news.beritasatumedia.com/Beritasatu/B1News_manifest.m3u8",
+
 adRules : " ",
 features :{loadByDiv: true, enableLiveAdsServerPush: true, smartAutoplay: true}};var firstPlay =false;live_bersamakitanews.detikVideoLoadedCallback = function (player){$('.vcounter').css('visibility', 'visible');
-bersamakitanewsLiveUserCounter.start();player.on('play', function() {if (!firstPlay) {firstPlay=true;bersamakitanewsLiveUserCounter.play();}});};</script></div>
+bersamakitanewsLiveUserCounter.start();player.on('play', function() {if (!firstPlay) {firstPlay=true;bersamakitanewsLiveUserCounter.play();}});};</script></div><div class="vcounter" style="visibility: hidden;"><div class="vcounter__l"><span class="vcounter__live">LIVE</span></div><div class="vcounter__r"><i class="fa fa-eye"></i><span id="counter-success">memuat...</span></div></div>
 
 </body>
 </html>
