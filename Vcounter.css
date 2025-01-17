@@ -1,7 +1,0 @@
-body {margin: 0;overflow: hidden;}
-.vcounter{display:flex;justify-content:space-between;background:#333;color:#fff;justify-content:normal;font-size:13px;font-family:Helvetica-FF,Arial,Tahoma,sans-serif;height:35px;padding:0 10px} .vcounter-vid{color:#494949;display:flex;font-size:13px} .vcounter__l{display:flex;align-items:center} .vcounter__r{display:flex;align-items:center;margin-right:5px} .vcounter__r span{margin-left:5px} .vcounter__live{padding-left:10px;position:relative;padding-right:10px;margin-right:10px;border-right:1px solid #fff} .vcounter__live:before{content:" ";;width:6px;height:6px;position:absolute;margin-top:-3px;top:50%;left:0;border-radius:50%;overflow:hidden;animation:live 1s;-moz-animation:live 1s infinite;-webkit-animation:live 1s infinite;background:#fcc43f} .fa-eye::before{content:"\f06e"}  
-
-@keyframes live{0%{background:#fcc43f}50%{background:#FF0000}100%{background:#fcc43f}}
-
-.blink {animation: blinker 1s linear infinite;} @keyframes blinker { 50% {opacity: 0; }} 
-  
