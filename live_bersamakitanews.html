@@ -9,7 +9,6 @@
 <meta name="viewport" content="initial-scale = 1.0, user-scalable = no, width=device-width, height=device-height, maximum-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <script type="text/javascript" src="https://cdn.cnnindonesia.com/cnnid/js/jquery-3.6.0.min.js"></script>
-<script src='https://rawcdn.githack.com/bersamakitanews/bersamakitanews/e4c41d73398417fe9f82f68f611e5ca95b6dc1d9/bersamakitanewsLiveUserCounter.js'></script><script src='https://rawcdn.githack.com/bersamakitanews/bersamakitanews.com/1a98b34231f4727174158f0e44523630764164ef/CounterSuccess.js'></script>
 
 <style>body {margin: 0;overflow: hidden;}
 </style>
@@ -23,13 +22,10 @@
 <script>
 var live_bersamakitanews= {target:'#main_live_chat', autoplay : false, mute : false, live : true, 
 imageUrl :'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFLLYocAHdpjAiMMOsQrD1oEvvFO3Kyc0H81RuLGxBq3ExCmzhoXNt9sLFVFk0Agn6jZkCHRWywQ4k4ioAQdXjoIaIBQZWWae89pN_5EmjlBlT7bTroB1a5VultZzOfj303nCO7Igw_7yEOxrmN5dmz-T2CbErWldo4GjVxa4r_YUsF3y9RQuuWHYjHa9U/s16000/20250109_002334.jpg',
-
 videoUrl : "https://b1news.beritasatumedia.com/Beritasatu/B1News_manifest.m3u8",
-
 adRules : " ",
 features :{loadByDiv: true, enableLiveAdsServerPush: true, smartAutoplay: true}};var firstPlay =false;live_bersamakitanews.detikVideoLoadedCallback = function (player){$('.vcounter').css('visibility', 'visible');
-bersamakitanewsLiveUserCounter.start();player.on('play', function() {if (!firstPlay) {firstPlay=true;bersamakitanewsLiveUserCounter.play();}});};
-</script></div>
+bersamakitanewsLiveUserCounter.start();player.on('play', function() {if (!firstPlay) {firstPlay=true;bersamakitanewsLiveUserCounter.play();}});};</script></div>
 
 </body>
 </html>
