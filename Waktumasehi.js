@@ -98,7 +98,7 @@ var y = tod.getFullYear();
 var m = tod.getMonth();
 var d = tod.getDate();
 var dow = tod.getDay();
-tglMasehi.textContent = weekday[dow] + " " + d + " " + monthname[m] + " " + y + " M"
+tglMasehi.textContent = weekday[dow] + " " + d + " " + monthname[m] + " " + y + " "
 // document.write(weekday[dow] + " " + d + " " + monthname[m] + " " + y);
 m++;
 fixd=gregToFixed(y, m, d);
