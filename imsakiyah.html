@@ -1,0 +1,83 @@
+<div class="imsakiyah" id="ramadhan">
+<div class="imsakiyah__mid__content">
+<div class="tanggal-masehi">Hari / Tanggal :<div id="tglMasehi" style="margin-left:10px"></div></div>
+
+<div class="waktuimsakiyah" style="position:relative;top:-54px;padding:0;"><div class="tanggal-hijriah" id="tglHijriyah"></div>
+<div class="jam-waktu">Pukul :<div id="jam" style='margin-left:10px;margin-right:10px'></div>WIB</div></div>
+  
+<div class="sholat" id="jadwal"></div>
+<div class="countdown-wrapp" style="top:30px">
+<h4><marquee align="center" behavior="alternate" direction="left" scrollamount="2"><span style="font-family: inherit;">Menuju Hari Raya Idul Fitri 1446 H / 2025 M</span></marquee></h4>
+<div class="countdown-inner" id="countdown-inner">
+<div class="clock-column">
+<div id="days"></div>
+<p class="clock-label Bhari"><span style="font-family: inherit;">Hari</span></p>
+</div>
+<div class="clock-column">
+<div id="hour"></div>
+<p class="clock-label Bjam"><span style="font-family: inherit;">Jam</span></p>
+</div>
+<div class="clock-column">
+<div id="minutes"></div>
+<p class="clock-label Bmenit"><span style="font-family: inherit;">Menit</span></p>
+</div>
+<div class="clock-column">
+<div id="seconds"></div>
+<p class="clock-label Bdetik"><span style="font-family: inherit;">Detik</span></p>
+</div></div></div></div></div>
+
+<script>
+(function () {
+const second = 1000,
+minute = second * 60,
+hour = minute * 60,
+day = hour * 24;
+//I'm adding this section so I don't have to keep updating this pen every year :-)
+//remove this if you don't need it
+let today = new Date(),
+dd = String(today.getDate()).padStart(2, "0"),
+mm = String(today.getMonth() + 1).padStart(2, "0"),
+yyyy = today.getFullYear(),
+nextYear = yyyy + 1,
+dayMonth = "03/31/",
+birthday = dayMonth + yyyy;
+today = mm + "/" + dd + "/" + yyyy;
+if (today > birthday) {
+birthday = dayMonth + nextYear;
+}
+//end
+const countDown = new Date(birthday).getTime(),
+x = setInterval(function() {
+const now = new Date().getTime(),
+distance = countDown - now;
+document.getElementById("days").innerText = Math.floor(distance / (day)),
+document.getElementById("hour").innerText = Math.floor((distance % (day)) / (hour)),
+document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+//do something later when date is reached
+//seconds
+}, 0)
+}());
+</script>
+  
+<script type="text/javascript">
+  // Set Jadwal Sholat call PrayTimes.js
+var date = new Date();
+prayTimes.setMethod('MWL'); // Calculation Methods
+prayTimes.tune({fajr: 0, dhuhr: 0, asr: 0, maghrib: 0, isha: 0});
+var times = prayTimes.getTimes(date, [ 1.05000000, 101.28000000,], 7.00); // Kecamatan Pinggir
+var list = ['Imsak', 'Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+var nama = [' ', ' ', ' ', ' ', ' ', ' '];
+var html = '<table id="timetable"><tr>';
+
+for (var i in list) {
+  // html += '<tr><td>'+ list[i]+ '</td>';
+	html += '<td><span>' + nama[i] + '</span><br/>' + times[list[i].toLowerCase()] + '</td>';
+	}
+	html += '</tr></table>';
+	document.getElementById('jadwal').innerHTML = html;
+</script>
+
+<script src="https://rawcdn.githack.com/bersamakitanews/playtimes.js/0a1b276de3a157665ac70aa52e75e219115db56e/Playtimes.js" type="text/javascript"></script>
+
+<script src="https://rawcdn.githack.com/bersamakitanews/bersamakitanews/adb6a08fc5c190acd8767f8b63092747a6176f21/Waktumasehi.js" type="text/javascript"></script>
