@@ -393,7 +393,7 @@ $('.ssb-close').css("display", "block");
 }, 3000);
 $(".footer_banner").show();
 $(".back-top").animate({ "bottom": "180px" }, 300);
-$(".sticky-share").css({ "bottom": "120px" });
+$(".share-sticky").css({ "bottom": "120px" });
 $(".notif_breakingnews").css("bottom", "120px");
 $(".bottom-sticky").css("bottom", "120px");
 $('.floatingshare').css("bottom", "110px");
