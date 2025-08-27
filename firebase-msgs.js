@@ -1,0 +1,109 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+import { deleteToken, getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-messaging.js";
+import { getFirestore, doc, setDoc, deleteDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+
+// 🔑 VAPID Key kamu
+const vapidKey = "BFg8mYS_jQQEY-t129oLP2eiYxIcGxy3_AxG83HqgiEB7S0nJyBEx1-jSbTrZMtk4jqParRloRJ2Fa35s4-Rer4";
+
+// 🔥 Firebase Config kamu
+const config = {
+  apiKey: "AIzaSyA9IBvV4t6TNf-ls3-alCUV_1X0GJVrEnk",
+  authDomain: "web-push-ec77f.firebaseapp.com",
+  projectId: "web-push-ec77f",
+  storageBucket: "web-push-ec77f.appspot.com",
+  messagingSenderId: "595418503239",
+  appId: "1:595418503239:web:8d404da96ead6cab5df962",
+};
+
+// 🚀 Init Firebase
+const app = initializeApp(config);
+const messaging = getMessaging(app);
+const db = getFirestore(app);
+
+// 🔹 Request Permission
+function requestPermission() {
+  console.log("Requesting permission...");
+  Notification.requestPermission().then((perm) => {
+    if (perm === "granted") {
+      requestToken();
+      console.log("Notification permission granted.");
+    } else {
+      console.log("Unable to get permission to notify.");
+    }
+  });
+}
+
+// 🔹 Ambil Token
+function requestToken() {
+  getToken(messaging, { vapidKey }).then((token) => {
+    if (token) {
+      sendTokenToServer(token);
+    } else {
+      console.log("No registration token available.");
+      setTokenSentToServer(false);
+    }
+  }).catch((err) => {
+    console.log("Error retrieving token: ", err);
+    setTokenSentToServer(false);
+    requestToken(); // retry
+  });
+}
+
+// 🔹 Simpan Token ke Firestore
+async function sendTokenToServer(token) {
+  if (isTokenSentToServer()) {
+    console.log("Token already sent to server");
+    return;
+  }
+
+  const platform = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ? "mobile" : "desktop";
+  try {
+    await setDoc(doc(db, "deviceTokens", token), {
+      token,
+      platform,
+      userAgent: navigator.userAgent,
+      createdAt: serverTimestamp()
+    });
+    console.log("Token saved to Firestore ✅");
+    setTokenSentToServer(true);
+  } catch (e) {
+    console.error("Error saving token: ", e);
+  }
+}
+
+// 🔹 Hapus Token
+function deleteTokenFromFirebase() {
+  getToken(messaging, { vapidKey }).then((token) => {
+    deleteToken(messaging).then(async () => {
+      console.log("Token deleted:", token);
+      setTokenSentToServer(false);
+      if (token) await deleteDoc(doc(db, "deviceTokens", token));
+    }).catch((err) => {
+      console.log("Unable to delete token: ", err);
+    });
+  });
+}
+
+// 🔹 Local Flag
+function isTokenSentToServer() {
+  return window.localStorage.getItem("sentToServer") === "1";
+}
+function setTokenSentToServer(val) {
+  window.localStorage.setItem("sentToServer", val ? "1" : "0");
+}
+
+// 🔹 Listener pesan foreground
+onMessage(messaging, (payload) => {
+  console.log("Message received:", payload);
+  const { title, body, icon, url } = payload.notification;
+  const n = new Notification(title, { body, icon });
+  n.onclick = () => {
+    if (url) window.open(url, "_blank");
+  };
+});
+
+// 🔹 Init saat halaman load
+function initNotif() {
+  isTokenSentToServer() ? requestToken() : requestPermission();
+}
+initNotif();
