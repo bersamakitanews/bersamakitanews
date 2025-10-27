@@ -53,7 +53,7 @@ googletag.cmd.push(function() {
           setTargeting(REFRESH_KEY, REFRESH_VALUE).
           addService(googletag.pubads());
     
-            gpt_staticbanner3 = googletag.defineSlot('/4905536/detik_mobile/wp/static_banner1', [[300, 250], [320, 100]], 'div-gpt-ad-1577803021914-0').
+            gpt_staticbanner1 = googletag.defineSlot('/4905536/detik_mobile/wp/static_banner1', [[300, 250], [320, 100]], 'div-gpt-ad-1577803021914-0').
            setTargeting(REFRESH_KEY, REFRESH_VALUE).
            setTargeting('test', 'event').
            addService(googletag.pubads());
