@@ -1,4 +1,10 @@
-window.googletag = window.googletag || {cmd: []}; var interstitialSlot, staticSlot; let anchorSlot; dfp_keywords = getKeywords();
+window.googletag = window.googletag || {cmd: []};
+
+var interstitialSlot, staticSlot;
+let anchorSlot;
+
+dfp_keywords = getKeywords();
+
 // initialize pbjs
 var pbjs = pbjs || {};
 pbjs.que = pbjs.que || [];
