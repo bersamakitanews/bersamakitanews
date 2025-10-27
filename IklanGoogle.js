@@ -1,19 +1,4 @@
-window.googletag = window.googletag || {cmd: []};
-
-var interstitialSlot, staticSlot;
-let anchorSlot;
-
-// Ambil description dari meta tag Blogspot
-function getBlogDescription() {
-  var meta = document.querySelector('meta[name="description"]');
-  return meta ? meta.getAttribute('content') : '';
-}
-
-// Isi dfp_keywords dengan deskripsi blog
-var dfp_keywords = getBlogDescription();
-
-console.log("Deskripsi Blog:", dfp_keywords);
-
+window.googletag = window.googletag || {cmd: []}; var interstitialSlot, staticSlot; let anchorSlot; dfp_keywords = getKeywords();
 // initialize pbjs
 var pbjs = pbjs || {};
 pbjs.que = pbjs.que || [];
