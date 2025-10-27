@@ -63,9 +63,9 @@ googletag.cmd.push(function() {
               addService(googletag.pubads());
               
             
-           // gpt_parallax2 = googletag.defineSlot('/4905536/detik_mobile/news/parallax2', [[1, 1], [300, 250], [300, 600]], 'div-gpt-ad-1576065435299-0').
-           //  setTargeting(REFRESH_KEY, REFRESH_VALUE).
-           //   addService(googletag.pubads());
+              gpt_parallax2 = googletag.defineSlot('/4905536/detik_mobile/news/parallax2', [[1, 1], [300, 250], [300, 600]], 'div-gpt-ad-1576065435299-0').
+              setTargeting(REFRESH_KEY, REFRESH_VALUE).
+              addService(googletag.pubads());
            
             gpt_stickystaticclose = googletag.defineSlot('/4905536/detik_mobile/news/sticky_static', [[320, 100], [320, 50], [1, 1]], 'div-gpt-ad-1534323596855-0').
               setTargeting(REFRESH_KEY, REFRESH_VALUE).
@@ -546,4 +546,4 @@ function callAdserver(gptSlots) {
     if (pbjs.adserverCalled) return;
     pbjs.adserverCalled = true;
     googletag.pubads().refresh(gptSlots);
-  }  
+  }    
