@@ -3,7 +3,16 @@ window.googletag = window.googletag || {cmd: []};
 var interstitialSlot, staticSlot;
 let anchorSlot;
 
-dfp_keywords = getKeywords();
+// Ambil description dari meta tag Blogspot
+function getBlogDescription() {
+  var meta = document.querySelector('meta[name="description"]');
+  return meta ? meta.getAttribute('content') : '';
+}
+
+// Isi dfp_keywords dengan deskripsi blog
+var dfp_keywords = getBlogDescription();
+
+console.log("Deskripsi Blog:", dfp_keywords);
 
 // initialize pbjs
 var pbjs = pbjs || {};
@@ -52,11 +61,6 @@ googletag.cmd.push(function() {
            gpt_staticbanner1 = googletag.defineSlot('/4905536/detik_mobile/news/static_banner1', [[300, 250], [320, 100]], 'div-gpt-ad-1587882110917-0').
           setTargeting(REFRESH_KEY, REFRESH_VALUE).
           addService(googletag.pubads());
-    
-            gpt_staticbanner1 = googletag.defineSlot('/4905536/detik_mobile/wp/static_banner1', [[300, 250], [320, 100]], 'div-gpt-ad-1577803021914-0').
-           setTargeting(REFRESH_KEY, REFRESH_VALUE).
-           setTargeting('test', 'event').
-           addService(googletag.pubads());
           
       //     gpt_djarum = googletag.defineSlot('/4905536/detik_mobile/news/billboard', [1, 1], 'div-gpt-ad-1695233693349-0').addService(googletag.pubads());
       // setTargeting(REFRESH_KEY, REFRESH_VALUE).
