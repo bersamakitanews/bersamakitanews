@@ -3,10 +3,7 @@ window.googletag = window.googletag || {cmd: []};
 var interstitialSlot, staticSlot;
 let anchorSlot;
 
-// Gunakan description blogspot langsung (tanpa meta tag)
-var dfp_keywords = '<data:blog.metaDescription/>';
-
-console.log("Deskripsi Blog:", dfp_keywords);
+dfp_keywords = getKeywords();
 
 // initialize pbjs
 var pbjs = pbjs || {};
